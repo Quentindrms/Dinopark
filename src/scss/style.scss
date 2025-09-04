@@ -1,0 +1,25 @@
+@use "./views/mobile.scss";
+@use "./views/dekstop.scss";
+
+* {
+    margin:0;
+    padding:0;
+}
+
+.header-navigation{
+    background-color: #5a716aab;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link:visited{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-list{
+    list-style: none;
+}

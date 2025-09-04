@@ -1,0 +1,28 @@
+@media (min-width: 801px){
+.header-navigation{
+    display: flex;
+    flex-direction: row;
+    height: 4rem;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.brand-container{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.brand-image{
+    max-height: 30px;
+}
+
+.nav-list{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+}
