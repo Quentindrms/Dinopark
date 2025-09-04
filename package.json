@@ -1,0 +1,27 @@
+{
+  "name": "dinopark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch index.ts",
+    "watch:scss": "sass --watch src/scss/style.scss public/css/style.css",
+    "dev:watch": "npm run watch:scss && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^5.0.3",
+    "@types/pg": "^8.15.5",
+    "dotenv": "^17.2.2",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "psql": "^0.0.1",
+    "sass": "^1.92.0",
+    "scss": "^0.2.4",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "zod": "^4.1.5"
+  }
+}
