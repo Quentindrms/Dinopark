@@ -1,4 +1,7 @@
 @media (max-width: 800px) {
+  p {
+    text-align: center;
+  }
   .header-navigation {
     display: flex;
     flex-direction: column;
@@ -10,6 +13,10 @@
   }
 }
 @media (min-width: 801px) {
+  p {
+    text-align: justify;
+    max-width: 85vw;
+  }
   .header-navigation {
     display: flex;
     flex-direction: row;
@@ -33,27 +40,156 @@
     gap: 2rem;
   }
 }
+.homepage-main-title {
+  font-size: 2rem;
+  text-align: center;
+  font-family: "McLaren-regular";
+}
+
+.homepage-subtitle {
+  font-size: 1.75rem;
+  text-align: center;
+  font-family: "McLaren-regular";
+}
+
+.homepage-dinosaur-name {
+  font-size: 1.25rem;
+  font-family: "Maven-pro";
+  text-align: center;
+}
+
+/** Card */
+.onlight-dinosaur {
+  width: 100vw;
+  border: 2px solid black;
+}
+
+.card-image {
+  max-width: 10vw;
+  border: 2px solid black;
+  padding: 0.25rem;
+  border-radius: 1rem;
+}
+
+@media (max-width: 800px) {
+  .onlight-dinosaur {
+    width: 100vw;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .card-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-image {
+    max-width: 10vw;
+    border: 2px solid black;
+    padding: 0.25rem;
+    border-radius: 1rem;
+  }
+  .dinosaur-card {
+    text-align: center;
+  }
+}
+@media (min-width: 801px) {
+  .onlight-dinosaur {
+    width: 100vw;
+    border: 2px solid black;
+    padding: 2rem;
+  }
+  .card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .card-image {
+    max-width: 10vw;
+    border: 2px solid black;
+    padding: 0.25rem;
+    border-radius: 1rem;
+  }
+}
+/** Fonts **/
+@font-face {
+  font-family: "Kanit-regular";
+  src: url("fonts/Kanit-Regular.ttf");
+}
+@font-face {
+  font-family: "McLaren-regular";
+  src: url("fonts/McLaren-Regular.ttf");
+}
+@font-face {
+  font-family: "Maven-pro";
+  src: url("fonts/MavenPro.ttf");
+}
+/** Color schema **/
 * {
   margin: 0;
   padding: 0;
 }
 
+body {
+  background-color: rgba(223, 223, 223, 0.4588235294);
+  height: 100vh;
+}
+
+p {
+  font-family: "Maven-pro";
+  padding: 0.25rem;
+}
+
 .header-navigation {
-  background-color: rgba(90, 113, 106, 0.6705882353);
+  background-color: rgba(90, 113, 106, 0.4588235294);
+}
+
+.brand-name {
+  font-family: "Kanit-regular";
+  font-size: 1.5rem;
 }
 
 .nav-link {
   text-decoration: none;
-  color: black;
+  color: rgba(235, 231, 231, 0.8705882353);
 }
 
 .nav-link:visited {
   text-decoration: none;
-  color: black;
+  color: rgba(235, 231, 231, 0.8705882353);
+}
+
+.nav-link:hover {
+  color: #4F8B9A;
 }
 
 .nav-list {
   list-style: none;
+  font-size: 1.35rem;
+  font-family: "Kanit-regular";
+}
+
+/** Titles */
+.title-2 {
+  font-size: 1.75rem;
+  font-family: "McLaren-regular";
+}
+
+/** Footer **/
+.footer-container {
+  background-color: rgba(90, 113, 106, 0.4588235294);
+  color: rgba(235, 231, 231, 0.8705882353);
+  height: max-content;
+}
+
+.footer-brand-name {
+  padding: 1rem;
+  text-align: center;
+}
+
+.footer-brand-text {
+  padding: 1rem;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

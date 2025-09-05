@@ -1,25 +1,98 @@
 @use "./views/mobile.scss";
 @use "./views/dekstop.scss";
+@use "./homepage.scss";
+@use "./elements/card.scss";
+
+/** Fonts **/
+
+@font-face {
+    font-family: "Kanit-regular";
+    src: url("fonts/Kanit-Regular.ttf");
+}
+
+@font-face {
+    font-family: "McLaren-regular";
+    src: url("fonts/McLaren-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Maven-pro";
+    src: url("fonts/MavenPro.ttf")
+}
+
+/** Color schema **/
+
+$primary-color:#5A716A75;
+$secondary-color: #6DC0D5;
+$secondary-color-darker: #4F8B9A;
+$background-color: #DFDFDF75;
+$white: #ebe7e7de;
+
 
 * {
     margin:0;
     padding:0;
 }
 
-.header-navigation{
-    background-color: #5a716aab;
+body{
+    background-color: $background-color;
+    height: 100vh;
 }
 
+p{
+    font-family: 'Maven-pro';
+    padding: 0.25rem;
+}
+
+.header-navigation{
+    background-color: $primary-color;
+}
+
+.brand-name{
+    font-family: 'Kanit-regular';
+    font-size: 1.5rem;
+}
 .nav-link{
     text-decoration: none;
-    color: black;
+    color: $white;
 }
 
 .nav-link:visited{
     text-decoration: none;
-    color: black;
+    color: $white;
+}
+
+.nav-link:hover{
+    color: $secondary-color-darker;
 }
 
 .nav-list{
     list-style: none;
+    font-size: 1.35rem;
+    font-family: "Kanit-regular";
+}
+
+/** Titles */
+
+.title-2{
+    font-size: 1.75rem;
+    font-family: 'McLaren-regular';
+}
+
+/** Footer **/
+
+.footer-container{
+    background-color: $primary-color;
+    color: $white;
+    height: max-content;
+}
+
+.footer-brand-name{
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer-brand-text{
+    padding: 1rem;
+    text-align: center;
 }

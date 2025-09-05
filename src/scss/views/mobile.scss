@@ -1,5 +1,8 @@
 @media (max-width: 800px){
     
+p{
+    text-align: center;
+}
     .header-navigation{
     display: flex;
     flex-direction: column;
@@ -9,4 +12,6 @@
 .nav-list{
     display: flex;
     flex-direction: column;
-}}
+}
+}
+
