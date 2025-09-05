@@ -1,0 +1,62 @@
+/** Card */
+
+.onlight-dinosaur{
+    width: 100vw;
+    border: 2px solid black;
+}
+.card-image{
+    max-width: 10vw;
+    border: 2px solid black;
+    padding: 0.25rem;
+    border-radius: 1rem;
+}
+
+@media (max-width: 800px){
+   .onlight-dinosaur{
+    width: 100vw;
+    border: 2px solid black;
+    
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
+}
+
+.card-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image{
+    max-width: 10vw;
+    border: 2px solid black;
+    padding: 0.25rem;
+    border-radius: 1rem;
+}
+
+.dinosaur-card{
+    text-align: center;
+} 
+}
+
+@media (min-width:801px){
+    .onlight-dinosaur{
+    width: 100vw;
+    border: 2px solid black;
+    padding: 2rem;
+}
+
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card-image{
+    max-width: 10vw;
+    border: 2px solid black;
+    padding: 0.25rem;
+    border-radius: 1rem;
+}
+}
