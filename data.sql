@@ -7,17 +7,18 @@ CREATE TABLE ticket (
 
 CREATE TABLE Dinosaure(
    dinosaure_ID INTEGER,
-   dinosaure_name VARCHAR(50) ,
-   dinosaure_diet  VARCHAR(50) ,
-   dinosaure_species VARCHAR(50) ,
+   dinosaur_name VARCHAR(50) ,
+   dinosaur_diet  VARCHAR(50) ,
+   dinosaur_species VARCHAR(50) ,
    dinosaur_description VARCHAR(500) ,
-   dinosaure_available BOOLEAN,
+   dinosaur_available BOOLEAN,
    PRIMARY KEY(dinosaure_ID)
 );
 
 CREATE TABLE Utilisateur(
    user_id INTEGER,
    user_admin BOOLEAN,
+   user_first_name VARCHAR(50) ,
    user_surname VARCHAR(50) ,
    user_birthdate DATE,
    user_adress VARCHAR(50) ,
