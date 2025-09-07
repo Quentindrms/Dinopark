@@ -9,7 +9,8 @@ CREATE TABLE Dinosaure(
    dinosaure_ID INTEGER,
    dinosaure_name VARCHAR(50) ,
    dinosaure_diet  VARCHAR(50) ,
-   dinosaure_description VARCHAR(50) ,
+   dinosaure_species VARCHAR(50) ,
+   dinosaur_description VARCHAR(500) ,
    dinosaure_available BOOLEAN,
    PRIMARY KEY(dinosaure_ID)
 );
