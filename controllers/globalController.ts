@@ -5,7 +5,6 @@ export class GlobalController extends Controller {
     public homepage(){
 
         this.response.render('pages/homepage', {
-            
         })
     }
 
