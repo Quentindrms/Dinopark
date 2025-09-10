@@ -8,7 +8,7 @@ export interface DinosaurTypeRow{
     dinosaur_diet: string;
     dinosaur_description: string;
     dinosaur_species: string;
-    dinosaur_visitable: boolean;
+    dinosaur_available: boolean;
 }
 /** Class Dinosaur
  * Détermine la structure de l'objet
@@ -40,6 +40,6 @@ export class Dinosaur {
     }
 
     static fromRow(row: DinosaurTypeRow): Dinosaur{
-        return new Dinosaur(row.dinosaur_id, row.dinosaur_name, row.dinosaur_diet, row.dinosaur_description, row.dinosaur_species, row.dinosaur_visitable);
+        return new Dinosaur(row.dinosaur_id, row.dinosaur_name, row.dinosaur_diet, row.dinosaur_description, row.dinosaur_species, row.dinosaur_available);
     }
 }

@@ -5,4 +5,9 @@
             <p>Bonjour le monde</p>
         </main>
 
+
+        <% dinosaurs.forEach((dinosaur) => { %>
+        <%- include('../elements/dinosaur-card', {dinosaur}) %>
+        <% }) %>
+
         <%- include('../partials/footer') %>

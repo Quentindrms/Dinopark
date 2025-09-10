@@ -17,6 +17,7 @@ export class Database{
                 database: process.env.PGDATABASE
             });
         }
+        console.log(`Pool : ${this.pool}`)
         return Database.pool;
     }
 }
