@@ -1,3 +1,4 @@
+
 /** Define la structure du TypeRow
  * Reprend le nom des colonnes en BDD
  */

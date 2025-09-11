@@ -2,7 +2,6 @@ import { Express } from "express";
 import router from "./routes/"
 import {fileURLToPath} from "node:url";
 import path from "node:path";
-import { _file } from "zod/v4/core";
 
 const express = require('express');
 const app = express();
