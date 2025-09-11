@@ -3,11 +3,11 @@
 
         <main>
             <p>Bonjour le monde</p>
+
+                    <div class="card-wrapper">
+            <% dinosaurs.forEach((dinosaur)=> { %>
+                <%- include('../elements/dinosaur-card', {dinosaur}) %>
+                    <% }) %>
+        </div>
         </main>
-
-
-        <% dinosaurs.forEach((dinosaur) => { %>
-        <%- include('../elements/dinosaur-card', {dinosaur}) %>
-        <% }) %>
-
         <%- include('../partials/footer') %>

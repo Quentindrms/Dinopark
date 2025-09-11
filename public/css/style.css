@@ -64,11 +64,43 @@
   border: 2px solid black;
 }
 
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 15vw);
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.dinosaur-card {
+  border: 2px solid black;
+  max-width: 20vw;
+  text-align: center;
+  padding: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .card-image {
   max-width: 10vw;
   border: 2px solid black;
   padding: 0.25rem;
   border-radius: 1rem;
+}
+
+.dinosaur-card-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.dinosaur-card-resume {
+  font-size: 1.15rem;
+  font-style: italic;
+}
+
+.dinosaur-card-species {
+  font-size: 1.05rem;
+  text-decoration: underline;
 }
 
 @media (max-width: 800px) {
