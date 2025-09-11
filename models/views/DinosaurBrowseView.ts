@@ -5,6 +5,7 @@ export interface DinosaurBrowseViewTypeRow {
     dinosaur_name: string;
     dinosaur_diet: string;
     dinosaur_description: string;
+    dinosaur_resume: string;
     dinosaur_species: string;
     dinosaur_available: boolean;
 }
@@ -16,12 +17,13 @@ export class DinosaurBrowseView extends Dinosaur{
         dinosaurName: string, 
         dinosaurDiet: string, 
         dinosaurDescription: string,
+        dinosaurResume: string,
         dinosaurSpecies: string,
         dinosaurVisitable: boolean) {
-            super(id, dinosaurName, dinosaurDiet, dinosaurDescription, dinosaurSpecies, dinosaurVisitable);
+            super(id, dinosaurName, dinosaurDiet, dinosaurDescription, dinosaurResume, dinosaurSpecies, dinosaurVisitable);
     }
 
     static fromRow(row: DinosaurBrowseViewTypeRow): DinosaurBrowseView {
-        return new DinosaurBrowseView(row.dinosaur_id, row.dinosaur_name, row.dinosaur_diet, row.dinosaur_description, row.dinosaur_species, row.dinosaur_available);
+        return new DinosaurBrowseView(row.dinosaur_id, row.dinosaur_name, row.dinosaur_diet, row.dinosaur_description, row.dinosaur_resume, row.dinosaur_species, row.dinosaur_available);
     }
 }

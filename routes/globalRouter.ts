@@ -1,5 +1,5 @@
 import {request, Router} from "express";
-import {GlobalController} from "../controllers/globalController";
+import {GlobalController} from "../controllers/GlobalControllers";
 
 
 const globalRouter = Router();
@@ -9,11 +9,6 @@ globalRouter.get('/', (request, response) => {
     const controller = new GlobalController(request, response);
     controller.homepage();
 });
-
-globalRouter.get('/dinosaures', (request, response) =>{
-    const controller = new GlobalController(request, response);
-    controller.browseDinosaurs();
-})
 
 globalRouter.get('/about-us', (request, response) => {
     const controller = new GlobalController(request, response);

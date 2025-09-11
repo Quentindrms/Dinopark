@@ -1,0 +1,12 @@
+<%- include('../partials/head', {title:"Dinosaures | Dinopark"})%>
+    <%- include('../partials/header') %>
+
+        <main>
+            <p class="dinosaur-name"><%= dinosaur.name%></p>
+            <p class="dinosaur-resume"><%= dinosaur.resume %></p>
+            <p class="dinosaur-diet">Régime alimentaire : <%= dinosaur.diet %></p>
+            <p class="dinosaur-species">Éspèce : <%= dinosaur.species %></p>
+            <h2 class="dinosaur-title-2">Description</h2>
+            <p class="dinosaur-description"><%= dinosaur.description %></p>
+        </main>
+        <%- include('../partials/footer') %>
