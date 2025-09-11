@@ -143,6 +143,24 @@
     border-radius: 1rem;
   }
 }
+.reservation-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.form-label {
+  font-family: "McLaren-regular";
+}
+
 /** Fonts **/
 @font-face {
   font-family: "Kanit-regular";
