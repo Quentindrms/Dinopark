@@ -2,7 +2,13 @@
     <%- include('../partials/header') %>
 
         <main>
-            <p>Bonjour le monde</p>
+            <form class="form-connexion" method="post">
+                <label class="form-label" for="mail">Email</label>
+                <input class="form-input-mail" type="email" id="mail" name="mail">
+                <label class="form-label" for="mail">Mot de passe</label>
+                <input class="form-input-password" type="password" id="password" mail="password">
+                <input class="form-submit" type="submit" id="submit-button" value="Connexion">
+            </form>
         </main>
 
         <%- include('../partials/footer') %>

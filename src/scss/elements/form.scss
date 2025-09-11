@@ -1,0 +1,31 @@
+//Vue mobile 
+
+@media (max-width: 800px){
+
+}
+
+//Vue desktop
+
+@media (min-width: 800px){
+    
+}
+
+//Vue commune
+
+.reservation-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+.reservation-form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.form-label{
+    font-family: 'McLaren-regular';
+}
