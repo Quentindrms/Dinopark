@@ -6,7 +6,7 @@
                 <!-- Information sur l'utilisateur -->
 
                 <label class="form-label" for="name">Nom</label>
-                <input class="form-input-text" type="text" id="nom" name="name" required>
+                <input class="form-input-text" type="text" id="nom" name="name" value="<%= values?.name %>" required>
                 <% if(formErrors?.name?.errors?.[0]) { %>
                     <p class="form-input-error">
                         <%= formErrors?.name?.errors?.[0] %>
@@ -14,7 +14,7 @@
                     <% } %>
 
                         <label class="form-label" for="surname">Prénom</label>
-                        <input class="form-input-text" type="text" id="surname" name="surname" required>
+                        <input class="form-input-text" type="text" id="surname" name="surname" required value="<%= values?.surname %>">
                         <% if(formErrors?.surname?.errors?.[0]) { %>
                             <p class="form-input-error">
                                 <%= formErrors?.surname?.errors?.[0] %>
@@ -22,7 +22,7 @@
                             <% } %>
 
                                 <label class="form-label" for="birthdate">Date de naissance</label>
-                                <input class="form-input-date" type="date" id="birthdate" name="birthdate" required>
+                                <input class="form-input-date" type="date" id="birthdate" name="birthdate" value="<%= values?.birthDate %>" required>
                                 <% if(formErrors?.birthdate?.errors?.[0]) { %>
                                     <p class="form-input-error">
                                         <%= formErrors?.birthdate?.errors?.[0] %>
@@ -30,7 +30,7 @@
                                     <% } %>
 
                                         <label class="form-label" for="mail">Adresse mail</label>
-                                        <input class="form-input-mail" type="email" id="mail" name="mail" required>
+                                        <input class="form-input-mail" type="email" id="mail" name="mail" value="<%= values?.mail %>" required>
 
                                         <% if(formErrors?.mail?.errors?.[0]) { %>
                                             <p class="form-input-error">
@@ -51,7 +51,7 @@
                                                 <label class="form-label" for="visit-date">Date de
                                                     visite</label>
                                                 <input class="form-input-date" type="date" id="visit-date"
-                                                    name="visitDate" required>
+                                                    name="visitDate" value="<%= values?.visitDate %>"required>
                                                 <% if(formErrors?.visitDate?.errors?.[0]) { %>
                                                     <p class="form-input-error">
                                                         <%= formErrors?.visitDate?.errors?.[0] %>
@@ -69,7 +69,7 @@
                                                         <label class="form-label" for="count-ticket">Nombre de
                                                             billet</label>
                                                         <input class="form-input-number" type="number" id="countTicket"
-                                                            name="countTicket" required>
+                                                            name="countTicket" value="<%= values?.ticketNumber %>" required>
                                                         <% if(formErrors?.ticketNum?.errors?.[0]) { %>
                                                             <p class="form-input-error">
                                                                 <%= formErrors?.ticketNumber?.errors?.[0] %>
