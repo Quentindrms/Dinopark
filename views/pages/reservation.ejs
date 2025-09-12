@@ -2,33 +2,83 @@
     <%- include('../partials/header') %>
 
         <main class="reservation-main">
-            <form class="reservation-form" method="post" action="/submit">
+            <form class="reservation-form" method="post" action="/booking/submit">
                 <!-- Information sur l'utilisateur -->
+
                 <label class="form-label" for="name">Nom</label>
                 <input class="form-input-text" type="text" id="nom" name="name" required>
-                <label class="form-label" for="surname">Prénom</label>
-                <input class="form-input-text" type="text" id="surname" name="surname" required>
-                <label class="form-label" for="birthdate">Date de naissance</label>
-                <input class="form-input-date" type="date" id="birthdate" name="birthdate" required>
-                <label class="form-label" for="mail">Adresse mail</label>
-                <input class="form-input-mail" type="email" id="mail" name="mail" required>
-                <label class="form-label" for="password">Mot de passe</label>
-                <input class="form-input-password" type="password" name="password" id="password" required>
-                <label class="form-label" for="password">Confirmation du mot de passe</label>
-                <input class="form-input-password" type="password" name="password" id="password" required>
+                <% if(formErrors?.name?.errors?.[0]) { %>
+                    <p class="form-input-error">
+                        <%= formErrors?.name?.errors?.[0] %>
+                    </p>
+                    <% } %>
 
-                <!-- Information sur la visite -->
-                <label class="form-label" for="visit-date">Date de visite</label>
-                <input class="form-input-date" type="date" id="visit-date" name="visit-date" required>
-                <label class="form-label" for="select-ticket">Choix du billet</label>
-                <select name="select-ticket" id="select-ticket" required>
-                    <option value="">-- Choisissez votre billet --</option>
-                </select>
-                <label class="form-label" for="count-ticket">Nombre de billet</label>
-                <input class="form-input-number" type="number" required>
+                        <label class="form-label" for="surname">Prénom</label>
+                        <input class="form-input-text" type="text" id="surname" name="surname" required>
+                        <% if(formErrors?.surname?.errors?.[0]) { %>
+                            <p class="form-input-error">
+                                <%= formErrors?.surname?.errors?.[0] %>
+                            </p>
+                            <% } %>
+
+                                <label class="form-label" for="birthdate">Date de naissance</label>
+                                <input class="form-input-date" type="date" id="birthdate" name="birthdate" required>
+                                <% if(formErrors?.birthdate?.errors?.[0]) { %>
+                                    <p class="form-input-error">
+                                        <%= formErrors?.birthdate?.errors?.[0] %>
+                                    </p>
+                                    <% } %>
+
+                                        <label class="form-label" for="mail">Adresse mail</label>
+                                        <input class="form-input-mail" type="email" id="mail" name="mail" required>
+
+                                        <% if(formErrors?.mail?.errors?.[0]) { %>
+                                            <p class="form-input-error">
+                                                <%= formErrors?.mail?.errors?.[0] %>
+                                            </p>
+                                            <% } %>
+
+                                                <label class="form-label" for="password">Mot de passe</label>
+                                                <input class="form-input-password" type="password" name="password"
+                                                    id="password" required>
+
+                                                <label class="form-label" for="password">Confirmation du mot de
+                                                    passe</label>
+                                                <input class="form-input-password" type="password" name="password"
+                                                    id="password" required>
+
+                                                <!-- Information sur la visite -->
+                                                <label class="form-label" for="visit-date">Date de
+                                                    visite</label>
+                                                <input class="form-input-date" type="date" id="visit-date"
+                                                    name="visitDate" required>
+                                                <% if(formErrors?.visitDate?.errors?.[0]) { %>
+                                                    <p class="form-input-error">
+                                                        <%= formErrors?.visitDate?.errors?.[0] %>
+                                                    </p>
+                                                    <% } %>
 
 
-                <input class="form-submit-button" type="submit" value="Valider votre commande et procéder au paiement">
+                                                        <label class="form-label" for="select-ticket">Choix du
+                                                            billet</label>
+                                                        <select name="select-ticket" id="select-ticket">
+                                                            <option value="">-- Choisissez votre billet --</option>
+                                                        </select>
+
+
+                                                        <label class="form-label" for="count-ticket">Nombre de
+                                                            billet</label>
+                                                        <input class="form-input-number" type="number" id="countTicket"
+                                                            name="countTicket" required>
+                                                        <% if(formErrors?.ticketNum?.errors?.[0]) { %>
+                                                            <p class="form-input-error">
+                                                                <%= formErrors?.ticketNumber?.errors?.[0] %>
+                                                            </p>
+                                                            <% } %>
+
+
+                                                                <input class="form-submit-button" type="submit"
+                                                                    value="Valider votre commande et procéder au paiement">
             </form>
         </main>
 

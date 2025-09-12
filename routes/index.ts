@@ -7,6 +7,6 @@ const router = Router();
 
 router.use(globalRouter);
 router.use(dinosaursRouter);
-router.use(bookingRouter);
+router.use("/booking", bookingRouter);
 
 export default router;
