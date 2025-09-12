@@ -1,7 +1,6 @@
 import { Respository } from "../libs/Respository";
 import { Booking } from "../models/Booking";
-import {Ticket} from "../models/Ticket";
-import { TicketBrowseView, TicketBrowseViewTypeRow } from "../models/views/TicketBrowseView";
+import {Ticket, TicketTypeRow} from "../models/Ticket";
 
 export class TicketRepository extends Respository{
 
@@ -10,8 +9,8 @@ export class TicketRepository extends Respository{
         name: 'Fetch-all-ticket', 
         text: 'SELECT * FROM ticket'
     }
-    const result = await this.pool.query<TicketBrowseViewTypeRow>(query);
-    const tickets = result.rows.map((row) => TicketBrowseView.fromRow(row));
+    const result = await this.pool.query<TicketTypeRow>(query);
+    const tickets = result.rows.map((row) => Ticket.fromRow(row));
     return tickets;
     }
 }

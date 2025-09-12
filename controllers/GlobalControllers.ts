@@ -1,5 +1,4 @@
 import {Controller} from "../libs/Controller";
-import { TicketBrowseView } from "../models/views/TicketBrowseView";
 import {DinosaurRepository} from "../repositories/DinosaurRepository";
 import { TicketRepository } from "../repositories/TicketRespository";
 
