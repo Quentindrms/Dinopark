@@ -1,6 +1,7 @@
 CREATE TABLE ticket (
    ticket_id INTEGER,
    ticket_price NUMERIC(15,2)  ,
+   ticket_name VARCHAR(50) , 
    ticket_value VARCHAR(50) ,
    PRIMARY KEY(ticket_id)
 );
@@ -111,3 +112,10 @@ INSERT INTO dinosaur (dinosaur_ID, dinosaur_name, dinosaur_diet, dinosaur_specie
 (48, 'Siloé', 'Herbivore', 'Nigersaurus Taqueti', 'Le Nigersaurus était un sauropode du Crétacé qui se distingue par son crâne extraordinairement adapté. Il avait une bouche très large et plate, semblable à un aspirateur, et plus de 500 dents fines et remplaçables, organisées en batteries. Il se nourrissait en broutant la végétation basse, comme de l''herbe ou des fougères, un peu comme une tondeuse à gazon préhistorique. Son cou était généralement orienté vers le bas.', 'L''aspirateur à fougères du Crétacé.', true),
 (49, 'Magog', 'Carnivore', 'Mapusaurus Roseae', 'Le Mapusaurus était un carcharodontosauridé géant, parent du Giganotosaurus. Il a vécu au Crétacé supérieur. Des fossiles de plusieurs individus ont été trouvés ensemble, ce qui suggère fortement un comportement de chasse en meute. Cette stratégie leur aurait permis de s''attaquer aux plus grands animaux de tous les temps, les sauropodes titanosaures avec lesquels ils partageaient leur environnement.', 'Le chasseur en meute de titans.', true),
 (50, 'Selah', 'Herbivore', 'Psittacosaurus Mongoliensis', 'Le Psittacosaurus, ou "lézard-perroquet", était un petit cératopsien primitif du début du Crétacé. Son nom vient de son bec haut et court, semblable à celui d''un perroquet. C''était un bipède agile qui possédait des structures uniques ressemblant à des piquants ou des soies le long de sa queue. Des fossiles exceptionnels ont permis de connaître la couleur et les motifs de sa peau, révélant un contre-ombrage (dos sombre, ventre clair) pour le camouflage.', 'Le petit lézard-perroquet à piquants.', false);
+
+INSERT INTO TICKET (ticket_id, ticket_price, ticket_name, ticket_value) VALUES
+(1, 50, 'Aventurier', 'aventurier'),
+(2, 80, 'Explorateur', 'explorateur'),
+(3, 115, 'Archéologue', 'archeologue'),
+(4, 150, 'Paléontologue', 'paleontologue'),
+(5, 250, 'Collectionneur chevronné', 'collectionneur');

@@ -1,23 +1,17 @@
 import { Respository } from "../libs/Respository";
-import { Reservation } from "../models/Reservation";
+import { Booking } from "../models/Booking";
 import {Ticket} from "../models/Ticket";
+import { TicketBrowseView, TicketBrowseViewTypeRow } from "../models/views/TicketBrowseView";
 
 export class TicketRepository extends Respository{
 
-    async findAll(){
+    async findAll() :Promise<Ticket[]>{
             const query = {
         name: 'Fetch-all-ticket', 
-        text: 'SELECT * FROM reservation'
+        text: 'SELECT * FROM ticket'
     }
-    try{
-        const result = await this.pool.query(query);
-        const data = result.rows.map((row) => {
-            return new Reservation(row.id, row.reservationDate, row.reservation_user_id);
-        });
-        return data;
-    } catch(error){
-        return [];
+    const result = await this.pool.query<TicketBrowseViewTypeRow>(query);
+    const tickets = result.rows.map((row) => TicketBrowseView.fromRow(row));
+    return tickets;
     }
-    }
-
 }

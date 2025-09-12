@@ -63,6 +63,9 @@
                                                             billet</label>
                                                         <select name="select-ticket" id="select-ticket">
                                                             <option value="">-- Choisissez votre billet --</option>
+                                                            <% tickets.forEach((ticket) => { %>
+                                                                <option value="<%= ticket.value %>"><%= ticket.name %></option>
+                                                            <% }) %>
                                                         </select>
 
 

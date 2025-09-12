@@ -6,7 +6,15 @@ import {z} from "zod";
 
 export class BookingController extends Controller{
 
-    public postBooking(){
+    public browseBooking(){
+
+    }
+
+    public editBooking(){
+
+    }
+
+    public addBooking(){
 
         const postedBooking:PostedBooking = {
             name: this.request.body?.name,
@@ -30,6 +38,10 @@ export class BookingController extends Controller{
         else{
             this.response.render("pages/validation");
         }
+
+    }
+
+    public deleteBooking(){
 
     }
 }

@@ -1,7 +1,16 @@
 import {Controller} from "../libs/Controller";
+import { TicketBrowseView } from "../models/views/TicketBrowseView";
 import {DinosaurRepository} from "../repositories/DinosaurRepository";
+import { TicketRepository } from "../repositories/TicketRespository";
 
 export class GlobalController extends Controller {
+
+    private ticketRepository: TicketRepository;
+
+    constructor(request, response){
+        super(request, response);
+        this.ticketRepository = new TicketRepository();
+    }
 
     public homepage(){
 
@@ -14,9 +23,19 @@ export class GlobalController extends Controller {
         this.response.render('pages/about-parc');
     }
 
-    public bookingPage(){
+    public async bookingPage(){
+        const tickets = await this.ticketRepository.findAll();
+        console.log(`Ticket : ${tickets}`)
+        tickets.forEach((ticket) => {
+            console.log(ticket);
+        })
 
-        this.response.render('pages/reservation');
+
+        this.response.render('pages/reservation', {
+            values:[],
+            formErrors: [],
+            tickets,
+        });
     }
 
     public connexionPage(){
