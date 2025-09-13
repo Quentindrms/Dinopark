@@ -1,3 +1,5 @@
+import { NullLiteral } from "typescript";
+
 export interface UserTypeRow{
     user_id: number|null;
     user_admin: boolean;
@@ -41,5 +43,38 @@ export class User{
 
     static fromRow(row: UserTypeRow): User{
         return new User(row.user_id, row.user_admin, row.user_first_name, row.user_surname, row.user_birthdate, row.user_adress, row.user_mail, row.user_password)
+    }
+
+    getUserId():number|undefined{
+        if(this.id){
+            return this.id;
+        }
+        else{
+            return undefined;
+        }
+    }
+
+    getUserAdmin():boolean{
+        return this.admin
+    }
+
+    getUserFirstName():string{
+        return this.firstName;
+    }
+
+    getUserSurName():string{
+        return this.surname;
+    }
+
+    getuserBirthDate():Date{
+        return this.birtDate;
+    }
+
+    getuserAdress():string{
+        return this.adress;
+    }
+
+    getUserMail():string{
+        return this.mail;
     }
 }
