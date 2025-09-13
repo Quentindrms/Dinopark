@@ -1,7 +1,7 @@
 import { NullLiteral } from "typescript";
 
 export interface UserTypeRow{
-    user_id: number|null;
+    user_id: number|undefined;
     user_admin: boolean;
     user_first_name: string;
     user_surname: string;
@@ -12,7 +12,7 @@ export interface UserTypeRow{
 }
 
 export class User{
-    protected id: number|null;
+    protected id: number|undefined;
     protected admin: boolean;
     protected firstName: string;
     protected surname: string;
@@ -22,7 +22,7 @@ export class User{
     protected password: string;
 
     constructor(
-        id: number|null,
+        id: number|undefined,
         admin: boolean,
         firstName: string,
         surname: string,
@@ -76,5 +76,9 @@ export class User{
 
     getUserMail():string{
         return this.mail;
+    }
+
+    getPassword():string{
+        return this.password;
     }
 }

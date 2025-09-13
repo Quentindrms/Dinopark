@@ -1,36 +1,33 @@
 import { Controller } from "../libs/Controller";
 import { User } from "../models/User";
 import { UserRepository } from "../repositories/UserRepository";
+import { AuthService } from "../libs/client/auth.service";
 
-export class AccountController extends Controller{
+export class AccountController extends Controller {
 
-    private userRepository:UserRepository;
+    private userRepository: UserRepository;
 
-    constructor(request, response){
+    constructor(request, response) {
         super(request, response);
         this.userRepository = new UserRepository();
     }
 
-    async accountAuthentification(){
-        const requestedUser = this.request.body.userName; 
-        const users = await this.userRepository.findAll();
-        let userMail:string;
-        let userId:number|undefined;
-        console.log(this.request.body.mail);
-        console.log(users);
-        console.log(`Requested mail : ${requestedUser}`);
+    async accountAuthentification() {
 
-        const matchingUser = users.forEach((user):number|undefined => {
-            userMail = user.getUserMail();
-            if(userMail == requestedUser){
-                console.log('Correspondance email');
-                userId = user.getUserId();
-                console.log(`ID correspondant : ${userId}`)
-                return userId;
+        const requestedUser = this.request.body.userName; //Mail et mot de passe transmis par l'utilisateur lors de l'identification
+        const requestedEmailPassword = this.request.body.password;
+        const user = await this.userRepository.findByMail(requestedUser); //Recherche l'utilisateur par son mail
+ 
+        if(user){
+            const success = await AuthService.verifyPassword(requestedEmailPassword, user.getPassword()) //Comparaison des mots de passe
+            if(success){
+                console.log('Vous êtes connecté ! :)');
             }
-        })
-
-        console.log(`Correspondance à l'id : ${userId}`);
+            else{
+                console.log("Vous n'êtes pas connecté :(");
+                console.log(success);
+            }
+        }
     }
 
 }
