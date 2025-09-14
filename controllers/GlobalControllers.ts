@@ -38,7 +38,9 @@ export class GlobalController extends Controller {
     }
 
     public connexionPage(){
-        this.response.render('pages/connexion');
+        this.response.render('pages/connexion', {
+            authError:undefined,
+        });
     }
 
 }

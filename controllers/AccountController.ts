@@ -28,7 +28,9 @@ export class AccountController extends Controller {
             }
             else{
                 console.log("Vous n'êtes pas connecté :(");
-                this.response.status(400).render('/connexion');
+                this.response.status(400).render('pages/connexion', {
+                    authError:"L'identifiant et/ou le mot de passe sont incorrects"
+                });
             }
         }
     }

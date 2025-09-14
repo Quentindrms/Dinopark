@@ -2,7 +2,10 @@
     <%- include('../partials/header') %>
 
         <main>
-            <form class="form-connexion" method="post" action="/account/connexion">
+            <% if(authError) { %>
+                <p class="error"><%= authError %></p>
+            <% } %>
+            <form class="form-connexion" method="post" action="/auth">
                 <label class="form-label" for="mail">Email</label>
                 <input class="form-input-mail" type="email" id="mail" name="mail">
                 <label class="form-label" for="mail">Mot de passe</label>

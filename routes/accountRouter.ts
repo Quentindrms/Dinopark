@@ -1,14 +1,13 @@
 import { Router } from "express";
 import { AccountController } from "../controllers/AccountController";
+import { checkAuth } from "../middlewares/checkAuth";
 
 const accountRouter = Router();
 
-accountRouter.post('/connexion', (request, response) => {
-    const accountController = new AccountController(request, response);
-    accountController.accountAuthentification();
-});
+accountRouter.use(checkAuth);
 
-accountRouter.get('/homepage/', (request, response) => {
+
+accountRouter.get('/homepage', (request, response) => {
     const accountController = new AccountController(request, response);
     accountController.accountHomePage();
 })
