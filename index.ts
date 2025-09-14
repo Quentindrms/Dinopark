@@ -2,6 +2,7 @@ import { Express } from "express";
 import router from "./routes/"
 import {fileURLToPath} from "node:url";
 import path from "node:path";
+import cookieParser from "cookie-parser";
 
 const express = require('express');
 const app = express();
@@ -14,6 +15,7 @@ app.set('views', path.join(_dirname, "views"));
 app.use(express.static(path.join(_dirname, "public")));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(cookieParser());
 
 
 app.use("/", router)

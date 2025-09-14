@@ -1,12 +1,16 @@
 import { Router } from "express";
-import  {AccountController} from "../controllers/AccountController";
+import { AccountController } from "../controllers/AccountController";
 
 const accountRouter = Router();
 
 accountRouter.post('/connexion', (request, response) => {
     const accountController = new AccountController(request, response);
-    console.log(`Request body : ${request.body.userName}`);
-    accountController.accountAuthentification(); 
+    accountController.accountAuthentification();
 });
+
+accountRouter.get('/homepage/', (request, response) => {
+    const accountController = new AccountController(request, response);
+    accountController.accountHomePage();
+})
 
 export default accountRouter;
