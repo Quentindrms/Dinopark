@@ -1,11 +1,21 @@
 import Router from "express";
-import { AccountController } from "../controllers/AccountController";
+import { AuthController } from "../controllers/authController";
 
 const authRouter = Router();
 
 authRouter.post('/auth', (request, response) => {
-    const accountController = new AccountController(request, response);
-    accountController.accountAuthentification();
+    const authController = new AuthController(request, response);
+    authController.accountAuthentification();
 });
+
+authRouter.get('/sign-up', (request, response) => {
+    const authController = new AuthController(request, response);
+    authController.accountSignUp();
+})
+
+authRouter.post('/sign-up', (request, response) => {
+    const authController = new AuthController(request, response);
+    authController.accountRegistration(); 
+})
 
 export default authRouter;

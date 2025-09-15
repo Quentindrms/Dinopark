@@ -119,3 +119,28 @@ INSERT INTO TICKET (ticket_id, ticket_price, ticket_name, ticket_value) VALUES
 (3, 115, 'Archéologue', 'archeologue'),
 (4, 150, 'Paléontologue', 'paleontologue'),
 (5, 250, 'Collectionneur chevronné', 'collectionneur');
+
+INSERT INTO Utilisateur (user_id, user_admin, user_first_name, user_surname, user_birthdate, user_adress, user_mail, user_password)
+VALUES (
+    1,          -- user_id: Identifiant unique
+    TRUE,       -- user_admin: Vrai pour un compte administrateur
+    'Jean',     -- user_first_name: Prénom
+    'Dupont',   -- user_surname: Nom de famille
+    '1985-04-12', -- user_birthdate: Date de naissance
+    '123 Rue de Paris, 75001 Paris', -- user_adress: Adresse
+    'jean.dupont@admin.com', -- user_mail: Adresse e-mail
+    'motdepassesecurise123' -- user_password: Mot de passe (devrait être haché dans une application réelle)
+);
+
+-- Insertion de l'utilisateur client simple
+INSERT INTO Utilisateur (user_id, user_admin, user_first_name, user_surname, user_birthdate, user_adress, user_mail, user_password)
+VALUES (
+    2,          -- user_id: Identifiant unique
+    FALSE,      -- user_admin: Faux pour un compte client
+    'Marie',    -- user_first_name: Prénom
+    'Martin',   -- user_surname: Nom de famille
+    '1992-08-25', -- user_birthdate: Date de naissance
+    '456 Avenue de Lyon, 69002 Lyon', -- user_adress: Adresse
+    'marie.martin@email.com', -- user_mail: Adresse e-mail
+    'clientpassword456' -- user_password: Mot de passe (devrait être haché dans une application réelle)
+);

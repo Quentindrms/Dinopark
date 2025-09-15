@@ -1,0 +1,30 @@
+<%- include('../../partials/head', {title:"Mon compte"})%>
+    <%- include('../../partials/header') %>
+
+        <main>
+
+            <form class="signUp-form" method="POST" action="/sign-in">
+
+                <label class="form-label" for="surname">Nom</label>
+                <input class="form-input-text" type="text" id="surname" name="surname" required>
+
+                <label class="form-label" for="name">Prénom</label>
+                <input class="form-input-text" type="text" id="surname" name="name" required>
+
+                <label class="form-label" for="birthdate">Date de naissance</label>
+                <input class="form-input-date" type="date" id="birthdate" name="birthdate" required>
+
+                <label class="form-label" for="mail">Adresse mail</label>
+                <input class="form-input-text" type="email" required>
+
+                <label class="form-label" for="password">Mot de passe</label>
+                <input class="form-input-password" type="password" name="password">
+                <label class="form-label" for="password">confirmation de mot de passe</label>
+                <input class="form-input-password" type="password" name="password">
+
+                <input class="form-submit-button" type="submit" value="S'inscrire">
+            </form>
+
+        </main>
+
+        <%- include('../../partials/footer') %>
