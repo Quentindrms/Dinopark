@@ -38,4 +38,8 @@ export class UserRepository extends Respository {
         }
     }
 
+    async createUser(surname: string, name:string, birthdate: Date, mail: string, password: string){
+        
+    }
+
 }

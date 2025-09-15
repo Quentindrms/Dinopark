@@ -6,3 +6,11 @@ export type PostedBooking = {
     visitDate: Date|undefined,
     ticketNumber: number|undefined,
 }
+
+export type unregistredUser = {
+    name: string,
+    surname: string,
+    birthdate: Date,
+    mail: string,
+    password: string,
+}

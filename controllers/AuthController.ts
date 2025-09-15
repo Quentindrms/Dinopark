@@ -1,6 +1,8 @@
 import { Controller } from "../libs/Controller";
 import { UserRepository } from "../repositories/UserRepository";
 import { AuthService } from "../libs/client/auth.service";
+import { unregistredUser } from "../libs/Types";
+import {SignUpValidator} from "../models/validator/SignUpValidator";
 
 
 export class AuthController extends Controller{
@@ -34,13 +36,28 @@ export class AuthController extends Controller{
         }
     }
 
-    // Formulaire d'inscription avec validation Zod du formulaire
-    accountSignUp(){
+    signUp(){
         this.response.render('pages/account/signUp.ejs');
     }
 
+    // Formulaire d'inscription avec validation Zod du formulaire
+    accountSignUp():unregistredUser{
+        const unregistredUser = {
+            surname:this.request.body.surname,
+            name: this.request.body.name,
+            birthdate: new Date(this.request.body.birthdate),
+            mail: this.request.body.mail,
+            password: this.request.body.password,
+        }
+        console.log(unregistredUser);
+        const result = SignUpValidator.validateSignUp(unregistredUser); 
+        console.log(result);
+
+        return unregistredUser;
+    }
+
     //Une fois validée, 
-    async accountRegistration(){
+    private async accountRegistration(user:unregistredUser){
 
 
     }
