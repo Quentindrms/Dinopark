@@ -1,60 +1,48 @@
 CREATE TABLE ticket (
-   ticket_id INTEGER,
-   ticket_price NUMERIC(15,2)  ,
-   ticket_name VARCHAR(50) , 
-   ticket_value VARCHAR(50) ,
-   PRIMARY KEY(ticket_id)
+  ticket_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  ticket_price NUMERIC(15,2),
+  ticket_name VARCHAR(50),
+  ticket_value VARCHAR(50)
 );
 
-
-CREATE TABLE Dinosaur(
-   dinosaur_ID INTEGER,
-   dinosaur_name VARCHAR(50) ,
-   dinosaur_diet  VARCHAR(50) ,
-   dinosaur_species VARCHAR(50) ,
-   dinosaur_description VARCHAR(1500) ,
-   dinosaur_resume VARCHAR(50) ,
-   dinosaur_available BOOLEAN,
-   PRIMARY KEY(dinosaur_ID)
+CREATE TABLE dinosaur (
+  dinosaur_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  dinosaur_name VARCHAR(50),
+  dinosaur_diet VARCHAR(50),
+  dinosaur_species VARCHAR(50),
+  dinosaur_description VARCHAR(1500),
+  dinosaur_resume VARCHAR(50),
+  dinosaur_available BOOLEAN
 );
 
-CREATE TABLE Utilisateur(
-   user_id INTEGER,
-   user_admin BOOLEAN,
-   user_first_name VARCHAR(50) ,
-   user_surname VARCHAR(50) ,
-   user_birthdate DATE,
-   user_adress VARCHAR(50) ,
-   user_mail VARCHAR(50) ,
-   user_password VARCHAR(100) ,
-   PRIMARY KEY(user_id)
+CREATE TABLE utilisateur (
+  user_id SERIAL PRIMARY KEY,
+  user_admin BOOLEAN,
+  user_first_name VARCHAR(50),
+  user_surname VARCHAR(50),
+  user_birthdate DATE,
+  user_address VARCHAR(50),
+  user_mail VARCHAR(50),
+  user_password VARCHAR(100)
 );
 
-CREATE TABLE Réservation(
-   reservation_id INTEGER,
-   reservation_date DATE,
-   user_id INTEGER NOT NULL,
-   PRIMARY KEY(reservation_id),
-   FOREIGN KEY(user_id) REFERENCES Utilisateur(user_id)
+CREATE TABLE reservation (
+  reservation_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  reservation_date DATE,
+  user_id INTEGER NOT NULL REFERENCES utilisateur(user_id)
 );
 
-CREATE TABLE ticket_dinosaur(
-   ticket_id INTEGER,
-   dinosaur_ID INTEGER,
-   PRIMARY KEY(ticket_id, dinosaur_ID),
-   FOREIGN KEY(ticket_id) REFERENCES ticket (ticket_id),
-   FOREIGN KEY(dinosaur_ID) REFERENCES dinosaur(dinosaur_ID)
+CREATE TABLE ticket_dinosaur (
+  ticket_id INTEGER NOT NULL REFERENCES ticket(ticket_id),
+  dinosaur_id INTEGER NOT NULL REFERENCES dinosaur(dinosaur_id),
+  PRIMARY KEY (ticket_id, dinosaur_id)
 );
 
-CREATE TABLE reservation_ticket(
-   reservation_id INTEGER,
-   ticket_id INTEGER,
-   PRIMARY KEY(reservation_id, ticket_id),
-   FOREIGN KEY(reservation_id) REFERENCES Réservation(reservation_id),
-   FOREIGN KEY(ticket_id) REFERENCES ticket (ticket_id)
+CREATE TABLE reservation_ticket (
+  reservation_id INTEGER NOT NULL REFERENCES reservation(reservation_id),
+  ticket_id INTEGER NOT NULL REFERENCES ticket(ticket_id),
+  PRIMARY KEY (reservation_id, ticket_id)
 );
-
-
 -- dinosaurS -- 
 
 -- Jeu de données pour la table "dinosaur"
@@ -120,27 +108,8 @@ INSERT INTO TICKET (ticket_id, ticket_price, ticket_name, ticket_value) VALUES
 (4, 150, 'Paléontologue', 'paleontologue'),
 (5, 250, 'Collectionneur chevronné', 'collectionneur');
 
-INSERT INTO Utilisateur (user_id, user_admin, user_first_name, user_surname, user_birthdate, user_adress, user_mail, user_password)
-VALUES (
-    1,          -- user_id: Identifiant unique
-    TRUE,       -- user_admin: Vrai pour un compte administrateur
-    'Jean',     -- user_first_name: Prénom
-    'Dupont',   -- user_surname: Nom de famille
-    '1985-04-12', -- user_birthdate: Date de naissance
-    '123 Rue de Paris, 75001 Paris', -- user_adress: Adresse
-    'jean.dupont@admin.com', -- user_mail: Adresse e-mail
-    'motdepassesecurise123' -- user_password: Mot de passe (devrait être haché dans une application réelle)
-);
-
--- Insertion de l'utilisateur client simple
-INSERT INTO Utilisateur (user_id, user_admin, user_first_name, user_surname, user_birthdate, user_adress, user_mail, user_password)
-VALUES (
-    2,          -- user_id: Identifiant unique
-    FALSE,      -- user_admin: Faux pour un compte client
-    'Marie',    -- user_first_name: Prénom
-    'Martin',   -- user_surname: Nom de famille
-    '1992-08-25', -- user_birthdate: Date de naissance
-    '456 Avenue de Lyon, 69002 Lyon', -- user_adress: Adresse
-    'marie.martin@email.com', -- user_mail: Adresse e-mail
-    'clientpassword456' -- user_password: Mot de passe (devrait être haché dans une application réelle)
-);
+INSERT INTO utilisateur 
+  (user_admin, user_first_name, user_surname, user_birthdate, user_address, user_mail, user_password)
+VALUES 
+  (TRUE, 'Jean', 'Admin', '1985-01-15', '123 Rue de l''Admin, Paris', 'admin@example.com', 'motdepasse_admin_solide'), -- Apostrophe échappée ici
+  (FALSE, 'Alice', 'Martin', '1992-07-22', '456 Avenue des Users, Lyon', 'alice.martin@example.com', 'motdepasse_utilisateur');

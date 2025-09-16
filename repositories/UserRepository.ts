@@ -1,3 +1,4 @@
+import { number } from "zod";
 import { Respository } from "../libs/Respository";
 import { User, UserTypeRow } from "../models/User";
 
@@ -38,8 +39,21 @@ export class UserRepository extends Respository {
         }
     }
 
-    async createUser(surname: string, name:string, birthdate: Date, mail: string, password: string){
-        
+    async createUser(surname: string, name: string, birthDate: Date, mail: string, password: string) {
+        const query = {
+            name: 'create-user',
+            text: "INSERT INTO utilisateur (user_admin, user_first_name, user_surname, user_birthdate, user_mail, user_password) VALUES ($1, $2, $3, $4, $5, $6)",
+            values: [false, surname, name, birthDate, mail, password],
+        }
+
+        try {
+            console.log('SUCCES');
+            const userCreation = await this.pool.query(query);
+            console.log(userCreation); 
+        } catch (error) {
+            console.log('ERREUR');
+            console.log(error);
+        }
     }
 
 }

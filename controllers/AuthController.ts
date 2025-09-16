@@ -1,7 +1,7 @@
 import { Controller } from "../libs/Controller";
 import { UserRepository } from "../repositories/UserRepository";
 import { AuthService } from "../libs/client/auth.service";
-import { unregistredUser } from "../libs/Types";
+import {unregistredUser} from "../libs/Types"; 
 import {SignUpValidator} from "../models/validator/SignUpValidator";
 
 
@@ -36,12 +36,8 @@ export class AuthController extends Controller{
         }
     }
 
-    signUp(){
-        this.response.render('pages/account/signUp.ejs');
-    }
-
     // Formulaire d'inscription avec validation Zod du formulaire
-    accountSignUp():unregistredUser{
+    accountSignUp(){
         const unregistredUser = {
             surname:this.request.body.surname,
             name: this.request.body.name,
@@ -51,17 +47,12 @@ export class AuthController extends Controller{
         }
         console.log(unregistredUser);
         const result = SignUpValidator.validateSignUp(unregistredUser); 
-        console.log(result);
-
-        return unregistredUser;
+        console.log(`Validation : ${result}`);
+        this.userRepository.createUser(unregistredUser.surname, unregistredUser.name, unregistredUser.birthdate, unregistredUser.mail, unregistredUser.password);
     }
 
     //Une fois validée, 
     private async accountRegistration(user:unregistredUser){
 
-
     }
-
-
-
 }
