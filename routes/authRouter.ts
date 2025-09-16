@@ -1,5 +1,5 @@
 import Router from "express";
-import { AuthController } from "../controllers/AuthController";
+import { AuthController } from "../controllers/authController";
 
 const authRouter = Router();
 
@@ -10,12 +10,17 @@ authRouter.post('/auth', (request, response) => {
 
 authRouter.get('/sign-up', (request, response) => {
     const authController = new AuthController(request, response);
-    authController.signUp();
+    authController.accountSignUp();
 })
 
 authRouter.post('/sign-up', (request, response) => {
     const authController = new AuthController(request, response);
     authController.accountSignUp();
+})
+
+authRouter.get('/signup-success', (request, response) => {
+    const authController = new AuthController(request, response);
+    authController.signupSuccess();
 })
 
 export default authRouter;

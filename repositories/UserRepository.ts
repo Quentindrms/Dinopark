@@ -46,12 +46,11 @@ export class UserRepository extends Respository {
             values: [false, surname, name, birthDate, mail, password],
         }
 
+        // Validation de l'utilisateur par validateur
         try {
-            console.log('SUCCES');
             const userCreation = await this.pool.query(query);
-            console.log(userCreation); 
+            console.log(userCreation);  
         } catch (error) {
-            console.log('ERREUR');
             console.log(error);
         }
     }

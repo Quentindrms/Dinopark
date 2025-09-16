@@ -47,12 +47,30 @@ export class AuthController extends Controller{
         }
         console.log(unregistredUser);
         const result = SignUpValidator.validateSignUp(unregistredUser); 
-        console.log(`Validation : ${result}`);
-        this.userRepository.createUser(unregistredUser.surname, unregistredUser.name, unregistredUser.birthdate, unregistredUser.mail, unregistredUser.password);
+        if(result){
+            console.log('Utilisateur validé par le validateur');
+        }
+        else{
+            console.log('Utilisateur invalidé par le validateur');
+        }
+        console.log(`Validation : ${result.success}`);
+        this.accountRegistration(unregistredUser);
+    }
+
+    signupSuccess(){
+        this.response.render('pages/account/signup-confirmation');
     }
 
     //Une fois validée, 
     private async accountRegistration(user:unregistredUser){
+        try{
+        this.userRepository.createUser(user.surname, user.name, user.birthdate, user.mail, user.password);
+        console.log('Utilisateur crée avec succès'); 
+        }catch(err){
+            console.error(err); 
+        }
 
+
+        this.response.redirect('/signup-success')
     }
 }
