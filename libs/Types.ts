@@ -12,5 +12,5 @@ export type unregistredUser = {
     surname: string,
     birthdate: Date,
     mail: string,
-    password: string,
+    password: string|undefined,
 }

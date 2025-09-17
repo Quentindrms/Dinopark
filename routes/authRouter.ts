@@ -15,7 +15,7 @@ authRouter.get('/sign-up', (request, response) => {
 
 authRouter.post('/sign-up', (request, response) => {
     const authController = new AuthController(request, response);
-    authController.accountSignUp();
+    authController.accountRegistration();
 })
 
 authRouter.get('/signup-success', (request, response) => {

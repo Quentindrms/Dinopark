@@ -38,7 +38,12 @@ export class AuthController extends Controller{
 
     // Formulaire d'inscription avec validation Zod du formulaire
     accountSignUp(){
-        const unregistredUser = {
+        this.response.render('pages/account/signUp');
+    }
+
+    //Une fois validée, 
+    public async accountRegistration(){
+                const unregistredUser = {
             surname:this.request.body.surname,
             name: this.request.body.name,
             birthdate: new Date(this.request.body.birthdate),
@@ -53,24 +58,23 @@ export class AuthController extends Controller{
         else{
             console.log('Utilisateur invalidé par le validateur');
         }
+
         console.log(`Validation : ${result.success}`);
-        this.accountRegistration(unregistredUser);
-    }
 
-    signupSuccess(){
-        this.response.render('pages/account/signup-confirmation');
-    }
-
-    //Une fois validée, 
-    private async accountRegistration(user:unregistredUser){
         try{
-        this.userRepository.createUser(user.surname, user.name, user.birthdate, user.mail, user.password);
+            if(unregistredUser.password){
+        let hashedPassword = await AuthService.hashPassword(unregistredUser.password);
+        if (!hashedPassword) return
+        this.userRepository.createUser(unregistredUser.surname, unregistredUser.name, unregistredUser.birthdate, unregistredUser.mail, hashedPassword);
         console.log('Utilisateur crée avec succès'); 
-        }catch(err){
-            console.error(err); 
         }
-
-
+        }catch(err){
+            console.error(err);
+        }
         this.response.redirect('/signup-success')
+    }
+
+        signupSuccess(){
+        this.response.render('pages/account/signup-confirmation');
     }
 }
