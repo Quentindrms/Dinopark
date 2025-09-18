@@ -1,59 +1,48 @@
 CREATE TABLE ticket (
-   ticket_id INTEGER,
-   ticket_price NUMERIC(15,2)  ,
-   ticket_value VARCHAR(50) ,
-   PRIMARY KEY(ticket_id)
+  ticket_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  ticket_price NUMERIC(15,2),
+  ticket_name VARCHAR(50),
+  ticket_value VARCHAR(50)
 );
 
-
-CREATE TABLE Dinosaur(
-   dinosaur_ID INTEGER,
-   dinosaur_name VARCHAR(50) ,
-   dinosaur_diet  VARCHAR(50) ,
-   dinosaur_species VARCHAR(50) ,
-   dinosaur_description VARCHAR(1500) ,
-   dinosaur_resume VARCHAR(50) ,
-   dinosaur_available BOOLEAN,
-   PRIMARY KEY(dinosaur_ID)
+CREATE TABLE dinosaur (
+  dinosaur_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  dinosaur_name VARCHAR(50),
+  dinosaur_diet VARCHAR(50),
+  dinosaur_species VARCHAR(50),
+  dinosaur_description VARCHAR(1500),
+  dinosaur_resume VARCHAR(50),
+  dinosaur_available BOOLEAN
 );
 
-CREATE TABLE Utilisateur(
-   user_id INTEGER,
-   user_admin BOOLEAN,
-   user_first_name VARCHAR(50) ,
-   user_surname VARCHAR(50) ,
-   user_birthdate DATE,
-   user_adress VARCHAR(50) ,
-   user_mail VARCHAR(50) ,
-   user_password VARCHAR(100) ,
-   PRIMARY KEY(user_id)
+CREATE TABLE utilisateur (
+  user_id SERIAL PRIMARY KEY,
+  user_admin BOOLEAN,
+  user_first_name VARCHAR(50),
+  user_surname VARCHAR(50),
+  user_birthdate DATE,
+  user_address VARCHAR(50),
+  user_mail VARCHAR(50),
+  user_password VARCHAR(100)
 );
 
-CREATE TABLE Réservation(
-   reservation_id INTEGER,
-   reservation_date DATE,
-   user_id INTEGER NOT NULL,
-   PRIMARY KEY(reservation_id),
-   FOREIGN KEY(user_id) REFERENCES Utilisateur(user_id)
+CREATE TABLE reservation (
+  reservation_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  reservation_date DATE,
+  user_id INTEGER NOT NULL REFERENCES utilisateur(user_id)
 );
 
-CREATE TABLE ticket_dinosaur(
-   ticket_id INTEGER,
-   dinosaur_ID INTEGER,
-   PRIMARY KEY(ticket_id, dinosaur_ID),
-   FOREIGN KEY(ticket_id) REFERENCES ticket (ticket_id),
-   FOREIGN KEY(dinosaur_ID) REFERENCES dinosaur(dinosaur_ID)
+CREATE TABLE ticket_dinosaur (
+  ticket_id INTEGER NOT NULL REFERENCES ticket(ticket_id),
+  dinosaur_id INTEGER NOT NULL REFERENCES dinosaur(dinosaur_id),
+  PRIMARY KEY (ticket_id, dinosaur_id)
 );
 
-CREATE TABLE reservation_ticket(
-   reservation_id INTEGER,
-   ticket_id INTEGER,
-   PRIMARY KEY(reservation_id, ticket_id),
-   FOREIGN KEY(reservation_id) REFERENCES Réservation(reservation_id),
-   FOREIGN KEY(ticket_id) REFERENCES ticket (ticket_id)
+CREATE TABLE reservation_ticket (
+  reservation_id INTEGER NOT NULL REFERENCES reservation(reservation_id),
+  ticket_id INTEGER NOT NULL REFERENCES ticket(ticket_id),
+  PRIMARY KEY (reservation_id, ticket_id)
 );
-
-
 -- dinosaurS -- 
 
 -- Jeu de données pour la table "dinosaur"
@@ -111,3 +100,16 @@ INSERT INTO dinosaur (dinosaur_ID, dinosaur_name, dinosaur_diet, dinosaur_specie
 (48, 'Siloé', 'Herbivore', 'Nigersaurus Taqueti', 'Le Nigersaurus était un sauropode du Crétacé qui se distingue par son crâne extraordinairement adapté. Il avait une bouche très large et plate, semblable à un aspirateur, et plus de 500 dents fines et remplaçables, organisées en batteries. Il se nourrissait en broutant la végétation basse, comme de l''herbe ou des fougères, un peu comme une tondeuse à gazon préhistorique. Son cou était généralement orienté vers le bas.', 'L''aspirateur à fougères du Crétacé.', true),
 (49, 'Magog', 'Carnivore', 'Mapusaurus Roseae', 'Le Mapusaurus était un carcharodontosauridé géant, parent du Giganotosaurus. Il a vécu au Crétacé supérieur. Des fossiles de plusieurs individus ont été trouvés ensemble, ce qui suggère fortement un comportement de chasse en meute. Cette stratégie leur aurait permis de s''attaquer aux plus grands animaux de tous les temps, les sauropodes titanosaures avec lesquels ils partageaient leur environnement.', 'Le chasseur en meute de titans.', true),
 (50, 'Selah', 'Herbivore', 'Psittacosaurus Mongoliensis', 'Le Psittacosaurus, ou "lézard-perroquet", était un petit cératopsien primitif du début du Crétacé. Son nom vient de son bec haut et court, semblable à celui d''un perroquet. C''était un bipède agile qui possédait des structures uniques ressemblant à des piquants ou des soies le long de sa queue. Des fossiles exceptionnels ont permis de connaître la couleur et les motifs de sa peau, révélant un contre-ombrage (dos sombre, ventre clair) pour le camouflage.', 'Le petit lézard-perroquet à piquants.', false);
+
+INSERT INTO TICKET (ticket_id, ticket_price, ticket_name, ticket_value) VALUES
+(1, 50, 'Aventurier', 'aventurier'),
+(2, 80, 'Explorateur', 'explorateur'),
+(3, 115, 'Archéologue', 'archeologue'),
+(4, 150, 'Paléontologue', 'paleontologue'),
+(5, 250, 'Collectionneur chevronné', 'collectionneur');
+
+INSERT INTO utilisateur 
+  (user_admin, user_first_name, user_surname, user_birthdate, user_address, user_mail, user_password)
+VALUES 
+  (TRUE, 'Jean', 'Admin', '1985-01-15', '123 Rue de l''Admin, Paris', 'admin@example.com', 'motdepasse_admin_solide'), -- Apostrophe échappée ici
+  (FALSE, 'Alice', 'Martin', '1992-07-22', '456 Avenue des Users, Lyon', 'alice.martin@example.com', 'motdepasse_utilisateur');

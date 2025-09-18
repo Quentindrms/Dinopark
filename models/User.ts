@@ -1,5 +1,7 @@
+import { NullLiteral } from "typescript";
+
 export interface UserTypeRow{
-    user_id: number|null;
+    user_id: number|undefined;
     user_admin: boolean;
     user_first_name: string;
     user_surname: string;
@@ -10,7 +12,7 @@ export interface UserTypeRow{
 }
 
 export class User{
-    protected id: number|null;
+    protected id: number|undefined;
     protected admin: boolean;
     protected firstName: string;
     protected surname: string;
@@ -20,7 +22,7 @@ export class User{
     protected password: string;
 
     constructor(
-        id: number|null,
+        id: number|undefined,
         admin: boolean,
         firstName: string,
         surname: string,
@@ -41,5 +43,42 @@ export class User{
 
     static fromRow(row: UserTypeRow): User{
         return new User(row.user_id, row.user_admin, row.user_first_name, row.user_surname, row.user_birthdate, row.user_adress, row.user_mail, row.user_password)
+    }
+
+    getUserId():number|undefined{
+        if(this.id){
+            return this.id;
+        }
+        else{
+            return undefined;
+        }
+    }
+
+    getUserAdmin():boolean{
+        return this.admin
+    }
+
+    getUserFirstName():string{
+        return this.firstName;
+    }
+
+    getUserSurName():string{
+        return this.surname;
+    }
+
+    getuserBirthDate():Date{
+        return this.birtDate;
+    }
+
+    getuserAdress():string{
+        return this.adress;
+    }
+
+    getUserMail():string{
+        return this.mail;
+    }
+
+    getPassword():string{
+        return this.password;
     }
 }

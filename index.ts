@@ -2,7 +2,7 @@ import { Express } from "express";
 import router from "./routes/"
 import {fileURLToPath} from "node:url";
 import path from "node:path";
-import { _file } from "zod/v4/core";
+import cookieParser from "cookie-parser";
 
 const express = require('express');
 const app = express();
@@ -12,8 +12,11 @@ const _dirname = path.dirname(_filename);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(_dirname, "views"));
+app.use(cookieParser());
 app.use(express.static(path.join(_dirname, "public")));
 app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+
 
 
 app.use("/", router)
