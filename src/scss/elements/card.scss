@@ -44,6 +44,21 @@
     text-decoration: underline;
 }
 
+.dinosaur-link{
+    color: black;
+    text-decoration: none;
+}
+
+.dinosaur-link:visited{
+    color: black;
+    text-decoration: none;
+}
+
+.dinosaur-link:hover{
+    color: #6DC0D5;
+    text-decoration: underline; 
+}
+
 @media (max-width: 800px){
    .onlight-dinosaur{
     width: 100vw;

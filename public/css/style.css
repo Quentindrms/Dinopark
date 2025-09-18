@@ -103,6 +103,21 @@
   text-decoration: underline;
 }
 
+.dinosaur-link {
+  color: black;
+  text-decoration: none;
+}
+
+.dinosaur-link:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.dinosaur-link:hover {
+  color: #6DC0D5;
+  text-decoration: underline;
+}
+
 @media (max-width: 800px) {
   .onlight-dinosaur {
     width: 100vw;
@@ -159,6 +174,20 @@
 
 .form-label {
   font-family: "McLaren-regular";
+}
+
+.form-connexion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.signup-link {
+  justify-content: center;
+  text-decoration: none;
+  text-align: center;
+  color: black;
 }
 
 /** Fonts **/
@@ -223,6 +252,17 @@ p {
 .title-2 {
   font-size: 1.75rem;
   font-family: "McLaren-regular";
+}
+
+/** Text **/
+.form-input-error {
+  color: red;
+  text-align: center;
+}
+
+.error {
+  color: red;
+  text-align: center;
 }
 
 /** Footer **/
