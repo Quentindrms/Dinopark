@@ -3,13 +3,14 @@ import { UserRepository } from "../repositories/UserRepository";
 import { AuthService } from "../libs/client/auth.service";
 import {unregistredUser} from "../libs/Types"; 
 import {SignUpValidator} from "../models/validator/SignUpValidator";
+import {Request, Response} from "express";
 
 
 export class AuthController extends Controller{
 
     private userRepository:UserRepository;
 
-    constructor(request, response){
+    constructor(request:Request, response:Response){
         super(request, response);
         this.userRepository = new UserRepository(); 
     };

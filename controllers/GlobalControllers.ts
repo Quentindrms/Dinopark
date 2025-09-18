@@ -1,12 +1,13 @@
 import {Controller} from "../libs/Controller";
 import {DinosaurRepository} from "../repositories/DinosaurRepository";
 import { TicketRepository } from "../repositories/TicketRespository";
+import {Request, Response} from "express";
 
 export class GlobalController extends Controller {
 
     private ticketRepository: TicketRepository;
 
-    constructor(request, response){
+    constructor(request:Request, response:Response){
         super(request, response);
         this.ticketRepository = new TicketRepository();
     }

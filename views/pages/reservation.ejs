@@ -51,14 +51,14 @@
                                                 <label class="form-label" for="visit-date">Date de
                                                     visite</label>
                                                 <input class="form-input-date" type="date" id="visit-date"
-                                                    name="visitDate" value="<%= values?.visitDate %>"required>
+                                                    min="<%-  Date.now %>"name="visitDate" value="<%= values?.visitDate %>"required>
                                                 <% if(formErrors?.visitDate?.errors?.[0]) { %>
                                                     <p class="form-input-error">
                                                         <%= formErrors?.visitDate?.errors?.[0] %>
                                                     </p>
                                                     <% } %>
 
-
+                                                    <!-- Affichage dans le sélecteur des valeurs enregistré en BDD-->
                                                         <label class="form-label" for="select-ticket">Choix du
                                                             billet</label>
                                                         <select name="select-ticket" id="select-ticket">

@@ -1,11 +1,12 @@
 import {Controller} from "../libs/Controller";
 import { DinosaurRepository } from "../repositories/DinosaurRepository";
+import {Request, Response} from "express";
 
 export class DinosaurController extends Controller{
 
     private dinosaurRepository: DinosaurRepository;
 
-    constructor(request, response){
+    constructor(request:Request, response:Response){
         super(request, response);
         this.dinosaurRepository = new DinosaurRepository();
     }

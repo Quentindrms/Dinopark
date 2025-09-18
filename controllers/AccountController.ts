@@ -3,12 +3,13 @@ import { User } from "../models/User";
 import { UserRepository } from "../repositories/UserRepository";
 import { AuthService } from "../libs/client/auth.service";
 import cookieParser from "cookie-parser";
+import {Request, Response} from "express";
 
 export class AccountController extends Controller {
 
     private userRepository: UserRepository;
 
-    constructor(request, response) {
+    constructor(request:Request, response:Response) {
         super(request, response);
         this.userRepository = new UserRepository();
     }
