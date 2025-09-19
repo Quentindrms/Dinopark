@@ -15,6 +15,28 @@ export class UserRepository extends Respository {
         return users;
     }
 
+        async findUserById(requestedId: number): Promise<User | null> {
+            const query = {
+                name: 'Fetch-ticket-by-id',
+                text: 'SELECT * FROM utilisateur WHERE user_id=$1',
+                values: [requestedId],
+            };
+    
+            try {
+                const result = await this.pool.query<UserTypeRow>(query);
+                if (result.rows[0]) {
+                    const user = User.fromRow(result.rows[0]);
+                    return user;
+                }
+                else {
+                    return null;
+                }
+            } catch (error) {
+                console.error(error);
+            }
+            return null;
+        }
+
     async findByMail(requestedMail: string): Promise<User | undefined> {
         const query = {
             name: 'fetch-user-by-mail',

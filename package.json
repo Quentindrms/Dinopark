@@ -7,7 +7,7 @@
     "dev": "tsx watch index.ts",
     "watch:scss": "sass --watch src/scss/style.scss public/css/style.css",
     "dev:watch": "npm run watch:scss && npm run dev",
-    "start":"tsx index.ts"
+    "start": "tsx index.ts"
   },
   "keywords": [],
   "author": "",
