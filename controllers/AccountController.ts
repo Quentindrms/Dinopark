@@ -4,14 +4,18 @@ import { UserRepository } from "../repositories/UserRepository";
 import { AuthService } from "../libs/client/auth.service";
 import cookieParser from "cookie-parser";
 import { Request, Response } from "express";
+import {DinosaurRepository} from "../repositories/DinosaurRepository";
+import { Dinosaur } from "../models/Dinosaur";
 
 export class AccountController extends Controller {
 
     private userRepository: UserRepository;
+    private dinosaurRepository: DinosaurRepository;
 
     constructor(request: Request, response: Response) {
         super(request, response);
         this.userRepository = new UserRepository();
+        this.dinosaurRepository = new DinosaurRepository();
     }
 
     async accountAuthentification() {
@@ -56,5 +60,24 @@ export class AccountController extends Controller {
         this.response.render('pages/account/accountInformation', {
             user,
         });
+    }
+
+    public async dinosaursManagement(){
+        const userCookie = JSON.parse(this.request.cookies.dinopark_connexion);
+        const userId = userCookie.id;
+        const user = await this.userRepository.findUserById(userId);
+
+        if(user?.getUserAdmin() == true){
+            const dinosaurs = await this.dinosaurRepository.findAll();
+            this.response.render('pages/account/dinosaur-management', {
+                dinosaurs,
+            });
+        }
+        else{
+            console.log("Vous n'avez pas le rang administrateur");
+            this.response.status(400).render('pages/account/homePage',{
+                user,
+            });
+        }
     }
 }

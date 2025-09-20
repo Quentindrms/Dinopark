@@ -17,4 +17,9 @@ accountRouter.get('/account', (request, response) => {
     accountController.accountInformation();
 });
 
+accountRouter.get('/admin/dinosaures', (request, response) => {
+    const accountController = new AccountController(request, response);
+    accountController.dinosaursManagement();
+})
+
 export default accountRouter;

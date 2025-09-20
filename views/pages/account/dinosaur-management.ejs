@@ -1,0 +1,14 @@
+<%- include('../../partials/head', {title:"Mon compte"})%>
+    <%- include('../../partials/header') %>
+
+        <main>
+            <%- include('../../partials/account/nav-menu-account') %>
+                <h1>Management des dinosaures</h1>
+                <div class="card-wrapper">
+                    <% dinosaurs.forEach((dinosaur)=> { %>
+                        <%- include('../../elements/dinosaur-card-admin', {dinosaur}) %>
+                            <% }) %>
+                </div>
+        </main>
+
+        <%- include('../../partials/footer') %>

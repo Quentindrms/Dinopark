@@ -2,11 +2,13 @@
     <%- include('../../partials/header') %>
 
         <main>
- 
-            <h1>Bienvenue <%= user.firstName %> <%= user.surname %></h1>
 
-            <a class="nav-skill" href="/account/account">Gérer votre compte</a>
-            
+            <%- include('../../partials/account/nav-menu-account') %>
+
+                <h1>Bienvenue <%= user.firstName %>
+                        <%= user.surname %>
+                </h1>
+
         </main>
 
         <%- include('../../partials/footer') %>
