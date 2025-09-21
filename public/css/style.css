@@ -75,10 +75,15 @@
 
 .dinosaur-card {
   border: 2px solid black;
-  max-width: 20vw;
+  max-width: 25vw;
   text-align: center;
   padding: 0.5rem;
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .card-image {
@@ -96,11 +101,23 @@
 .dinosaur-card-resume {
   font-size: 1.15rem;
   font-style: italic;
+  text-align: center;
 }
 
 .dinosaur-card-species {
   font-size: 1.05rem;
   text-decoration: underline;
+  text-align: center;
+}
+
+.dinosaur-available-true {
+  font-weight: bold;
+  color: green;
+}
+
+.dinosaur-available-false {
+  font-weight: bold;
+  color: red;
 }
 
 .dinosaur-link {
@@ -116,6 +133,19 @@
 .dinosaur-link:hover {
   color: #6DC0D5;
   text-decoration: underline;
+}
+
+.edit-dinosaur-link {
+  color: #6DC0D5;
+  text-decoration: none;
+  border: 2px solid rgba(90, 113, 106, 0.4588235294);
+  border-radius: 2px;
+  padding: 0.25rem;
+}
+
+.edit-dinosaur-link:visited {
+  color: #6DC0D5;
+  text-decoration: none;
 }
 
 @media (max-width: 800px) {
@@ -174,6 +204,7 @@
 
 .form-label {
   font-family: "McLaren-regular";
+  font-size: 1.25rem;
 }
 
 .form-connexion {
@@ -184,10 +215,43 @@
 }
 
 .signup-link {
-  justify-content: center;
-  text-decoration: none;
   text-align: center;
-  color: black;
+  text-decoration: none;
+  color: #4F8B9A;
+  margin: 1rem;
+}
+
+.signUp-form {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 1vh;
+}
+
+.form-input-text {
+  width: 35vw;
+}
+
+.form-input-mail {
+  width: 35vw;
+}
+
+.form-input-password {
+  width: 35vw;
+}
+
+.form-input-date {
+  width: 35vw;
+}
+
+.form-select {
+  width: 35vw;
+}
+
+.form-submit-button {
+  font-size: large;
 }
 
 /** Fonts **/
@@ -217,6 +281,10 @@ body {
 p {
   font-family: "Maven-pro";
   padding: 0.25rem;
+}
+
+main {
+  margin: 1rem;
 }
 
 .header-navigation {
@@ -270,6 +338,10 @@ p {
   background-color: rgba(90, 113, 106, 0.4588235294);
   color: rgba(235, 231, 231, 0.8705882353);
   height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-brand-name {
@@ -280,6 +352,21 @@ p {
 .footer-brand-text {
   padding: 1rem;
   text-align: center;
+}
+
+/** Compte utilisateur **/
+.account-nav-link {
+  color: #6DC0D5;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.nav-menu-account {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 1rem;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map */

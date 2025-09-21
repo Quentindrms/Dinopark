@@ -3,7 +3,12 @@
             <p class="dinosaur-card-name"><%= dinosaur.name %></p>
             <p class="dinosaur-card-resume"><%= dinosaur.resume %></p>
             <p class="dinosaur-card-species"><%= dinosaur.species %></p>
-            <p class="dinosaur-card-available>">Visitable : <%= dinosaur.visitable %></p>
+            <p class="dinosaur-card-available">Disponible : <% if(dinosaur.visitable == true){ %>
+                <span class="dinosaur-available-true">Oui</span>
+                <% } else { %>
+                <span class="dinosaur-available-false">Non</span>
+                <% } %>
+                </p>
 
             <div class="edit-dinosaur-button"><a href="/account/admin/dinosaur/<%= dinosaur.id %>" class="edit-dinosaur-link">Modifier</a></div>
         </div>
