@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 
-export function checkAuth(request, response, next) {
+export function checkAuth(request:Request, response:Response, next:NextFunction) {
     if (request.cookies.dinopark_connexion) {
         const authCookie = request.cookies.dinopark_connexion;
         if (authCookie) {

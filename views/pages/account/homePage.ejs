@@ -2,9 +2,14 @@
     <%- include('../../partials/header') %>
 
         <main>
- 
-            <h1>Si vous êtes ici c'est que vous êtes connecté et que les cookies fonctionnent</h1>
-            
+
+            <%- include('../../partials/account/nav-menu-account') %>
+
+            <p class="error"><%= err %></p>
+                <h1>Bienvenue <%= user.firstName %>
+                        <%= user.surname %>
+                </h1>
+
         </main>
 
         <%- include('../../partials/footer') %>

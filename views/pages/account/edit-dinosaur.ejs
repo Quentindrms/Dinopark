@@ -1,0 +1,42 @@
+<%- include('../../partials/head', {title:"Dinosaures | Dinopark"})%>
+    <%- include('../../partials/header') %>
+
+        <main>
+
+            <h1>Édition d'un dinosaur</h1>
+
+            <form name="edit-dinosaur" class="dinosaur-form-edit" method="POST" action="/account/admin/dinosaur/edit?_method=PUT">
+               <!-- Récupère l'ID et le transmet en champ masqué-->
+                <input id="id" name="id" type="hidden" value="<%= dinosaur.id %>" />
+
+
+                <label class="form-label">Nom </label>
+                <input type="text" name="name" value="<%= dinosaur.name %>" required>
+                <label class="form-label">Régime </label>
+                <input type="text" name="diet" value="<%= dinosaur.diet %>" required>
+                <label class="form-label">Description</label>
+                <textarea class="form-textarea" name="resume" required><%= dinosaur.description %></textarea>
+                <label class="form-label">Résumé</label>
+                <textarea class="form-textarea" name="description" required><%= dinosaur.resume %></textarea>
+                <label class="form-label">Espèce </label>
+                <input type="text" name="species" value="<%= dinosaur.species %>" required>
+                <label class="form-label">Disponible</label>
+                <select name="visitable" id="available" required>
+                    <option value="">
+                        <% if(dinosaur.visitable == true) { %>
+                            Oui
+                         <% }else{ %>
+                            Non
+                         <% } %></option>
+                    <option value="true">Oui</option>
+                    <option value="false">Non</option>
+                </select>
+
+
+                <input type="submit" class="submit-button" value="Soumettre">
+
+            </form>
+
+
+        </main>
+        <%- include('../../partials/footer') %>

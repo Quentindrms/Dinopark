@@ -31,7 +31,7 @@ export class Dinosaur {
         name: string,
         diet: string,
         description: string,
-        resume,
+        resume:string,
         species: string,
         visitable: boolean
     ) {

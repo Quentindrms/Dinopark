@@ -14,3 +14,13 @@ export type unregistredUser = {
     mail: string,
     password: string|undefined,
 }
+
+export type DinosaurEditRaw = {
+    id: number,
+    name: string,
+    diet: string,
+    resume: string,
+    description: string,
+    species: string,
+    visitable:boolean
+}

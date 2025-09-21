@@ -1,0 +1,9 @@
+        <div class="dinosaur-card">
+            <img class="card-image" src="/css/img/diplodocus.png">
+            <p class="dinosaur-card-name"><%= dinosaur.name %></p>
+            <p class="dinosaur-card-resume"><%= dinosaur.resume %></p>
+            <p class="dinosaur-card-species"><%= dinosaur.species %></p>
+            <p class="dinosaur-card-available>">Visitable : <%= dinosaur.visitable %></p>
+
+            <div class="edit-dinosaur-button"><a href="/account/admin/dinosaur/<%= dinosaur.id %>" class="edit-dinosaur-link">Modifier</a></div>
+        </div>
