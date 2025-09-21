@@ -2,7 +2,7 @@
 
 ## Description
 
-Dinopark est une application web conçue pour un parc à thème fictif sur les dinosaures. Le site permet aux utilisateurs de consulter des informations sur les différentes espèces présentées dans le parc, d'effectuer des réservations de billets et de gérer leur compte personnel.
+Dinopark est une application web conçue pour un parc à thème fictif sur les dinosaures. Le site permet aux utilisateurs de consulter des informations sur les différentes espèces présentées dans le parc, d'effectuer des réservations de billets et de gérer leur compte personnel. Une interface d'administration est également disponible pour la gestion des dinosaures.
 
 ## Fonctionnalités
 
@@ -12,8 +12,12 @@ Dinopark est une application web conçue pour un parc à thème fictif sur les d
   * **Authentification des utilisateurs** :
       * Création d'un compte personnel.
       * Connexion à un espace utilisateur sécurisé.
-      * Les mots de passe sont hachés via l'algorithme Argon2 pour garantir la sécurité des données.
+      * Les mots de passe sont hachés via l'algorithme **Argon2** pour garantir la sécurité des données.
   * **Gestion de compte** : Une fois authentifiés, les utilisateurs ont accès à une page de gestion de leur profil.
+  * **Panneau d'administration** :
+      * Une section privée réservée aux administrateurs.
+      * Possibilité de modifier les informations des dinosaures.
+      * Gestion des droits d'accès via un middleware dédié.
 
 ## Environnement technique
 
@@ -30,6 +34,7 @@ Le projet est développé sur la base des technologies suivantes :
       * **tsx** pour l'exécution des fichiers TypeScript.
       * **dotenv** pour la gestion des variables d'environnement.
       * **Zod** pour la validation des schémas de données.
+      * **method-override** pour l'utilisation des verbes HTTP PUT et DELETE.
 
 -----
 
@@ -97,9 +102,14 @@ L'architecture du projet est organisée comme suit :
 
   * **`controllers/`** : Logique de traitement des requêtes HTTP et de formulation des réponses.
   * **`models/`** : Définition des classes et interfaces représentant les entités de l'application (Dinosaur, User, etc.).
+      * **`validator/`** : Schémas de validation avec Zod.
+      * **`views/`** : Classes de vue pour les modèles.
   * **`repositories/`** : Gestion de l'accès et de la manipulation des données en base pour chaque modèle.
   * **`routes/`** : Définition des points d'accès de l'API et liaison avec les contrôleurs.
   * **`views/`** : Fichiers de templates EJS pour la génération des pages HTML.
+      * **`elements/`** : Composants réutilisables.
+      * **`pages/`** : Vues principales de l'application.
+      * **`partials/`** : Fragments de code EJS (header, footer, etc.).
   * **`public/`** : Ressources statiques (CSS, images, polices).
   * **`src/scss/`** : Code source des feuilles de style en SCSS.
   * **`libs/`** : Modules et services utilitaires (connexion BDD, authentification, etc.).
