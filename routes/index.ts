@@ -4,7 +4,10 @@ import dinosaursRouter from "./dinosaursRouter";
 import bookingRouter from "./bookingRouter";
 import accountRouter from "./accountRouter";
 import authRouter from "./authRouter";
+
+
 const router = Router();
+
 
 router.use(globalRouter);
 router.use(dinosaursRouter);

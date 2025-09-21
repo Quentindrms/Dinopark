@@ -22,4 +22,14 @@ accountRouter.get('/admin/dinosaures', (request, response) => {
     accountController.dinosaursManagement();
 })
 
+accountRouter.get('/admin/dinosaur/:id', (request, response) => {
+    const accountController = new AccountController(request, response);
+    accountController.editDinosaur();
+})
+
+accountRouter.put('/admin/dinosaur/edit', (request, response) => {
+    const accountController = new AccountController(request, response);
+    accountController.sendDinosaurEdit();
+});
+
 export default accountRouter;
