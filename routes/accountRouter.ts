@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { AccountController } from "../controllers/AccountController";
+import { DinosaurController } from "../controllers/DinosaursController";
 import { checkAuth } from "../middlewares/checkAuth";
+import { Dinosaur } from "../models/Dinosaur";
 
 const accountRouter = Router();
 
@@ -28,8 +30,8 @@ accountRouter.get('/admin/dinosaur/:id', (request, response) => {
 })
 
 accountRouter.put('/admin/dinosaur/edit', (request, response) => {
-    const accountController = new AccountController(request, response);
-    accountController.sendDinosaurEdit();
+    const dinosaurController = new DinosaurController(request, response);
+    dinosaurController.editDinosaurs();
 });
 
 export default accountRouter;

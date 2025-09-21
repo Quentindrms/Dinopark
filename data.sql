@@ -11,7 +11,7 @@ CREATE TABLE dinosaur (
   dinosaur_diet VARCHAR(50),
   dinosaur_species VARCHAR(50),
   dinosaur_description VARCHAR(1500),
-  dinosaur_resume VARCHAR(50),
+  dinosaur_resume VARCHAR(500),
   dinosaur_available BOOLEAN
 );
 

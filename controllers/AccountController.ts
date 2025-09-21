@@ -103,9 +103,6 @@ export class AccountController extends Controller {
     }
 
     public async sendDinosaurEdit(){
-        const userCookie = JSON.parse(this.request.cookies.dinopark_connexion);
-        const userId = userCookie.id;
-        const user = await this.userRepository.findUserById(userId);
-        console.log(this.request.body);
+
     }
 }
