@@ -28,6 +28,7 @@
 
 .form-label{
     font-family: 'McLaren-regular';
+    font-size: 1.25rem;
 }
 
 //Vue connexion
@@ -46,3 +47,29 @@
     color: black;
 }
 
+// Vue inscription
+
+.signUp-form{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 1vh;
+}
+
+.form-input-text{
+    width: 35vw;
+}
+
+.form-input-mail{
+    width: 35vw;
+}
+
+.form-input-password{
+    width: 35vw;
+}
+
+.form-submit-button{
+    font-size: large;
+}

@@ -1,11 +1,11 @@
 /** Card */
 
-.onlight-dinosaur{
+.onlight-dinosaur {
     width: 100vw;
     border: 2px solid black;
 }
 
-.card-wrapper{
+.card-wrapper {
     display: grid;
     grid-template-columns: repeat(4, 15vw);
     flex-direction: row;
@@ -14,97 +14,128 @@
     justify-content: center;
 }
 
-.dinosaur-card{
+.dinosaur-card {
     border: 2px solid black;
-    max-width:20vw;
+    max-width: 25vw;
     text-align: center;
     padding: 0.5rem;
-    flex-wrap: wrap;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-.card-image{
+.card-image {
     max-width: 10vw;
     border: 2px solid black;
     padding: 0.25rem;
     border-radius: 1rem;
 }
 
-.dinosaur-card-name{
+.dinosaur-card-name {
     font-size: 1.25rem;
     font-weight: bold;
 }
 
-.dinosaur-card-resume{
+.dinosaur-card-resume {
     font-size: 1.15rem;
     font-style: italic;
+    text-align: center;
 }
 
-.dinosaur-card-species{
+.dinosaur-card-species {
     font-size: 1.05rem;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.dinosaur-available-true{
+    font-weight: bold;
+    color: green;
+}
+
+.dinosaur-available-false{
+    font-weight: bold;
+    color: red;
+}
+
+.dinosaur-link {
+    color: black;
+    text-decoration: none;
+}
+
+.dinosaur-link:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.dinosaur-link:hover {
+    color: #6DC0D5;
     text-decoration: underline;
 }
 
-.dinosaur-link{
-    color: black;
-    text-decoration: none;
-}
-
-.dinosaur-link:visited{
-    color: black;
-    text-decoration: none;
-}
-
-.dinosaur-link:hover{
+.edit-dinosaur-link {
     color: #6DC0D5;
-    text-decoration: underline; 
-}
-
-@media (max-width: 800px){
-   .onlight-dinosaur{
-    width: 100vw;
-    border: 2px solid black;
-    
-    display: flex;
-    flex-direction: column;
-
-    padding: 1rem;
-}
-
-.card-container{
-    display: flex;
-    flex-direction: column;
-}
-
-.card-image{
-    max-width: 10vw;
-    border: 2px solid black;
+    text-decoration: none;
+    border: 2px solid #5A716A75;
+    border-radius: 2px;
     padding: 0.25rem;
-    border-radius: 1rem;
 }
 
-.dinosaur-card{
-    text-align: center;
-} 
+.edit-dinosaur-link:visited {
+    color: #6DC0D5;
+    text-decoration: none;
 }
 
-@media (min-width:801px){
-    .onlight-dinosaur{
-    width: 100vw;
-    border: 2px solid black;
-    padding: 2rem;
+@media (max-width: 800px) {
+    .onlight-dinosaur {
+        width: 100vw;
+        border: 2px solid black;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 1rem;
+    }
+
+    .card-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-image {
+        max-width: 10vw;
+        border: 2px solid black;
+        padding: 0.25rem;
+        border-radius: 1rem;
+    }
+
+    .dinosaur-card {
+        text-align: center;
+    }
 }
 
+@media (min-width:801px) {
+    .onlight-dinosaur {
+        width: 100vw;
+        border: 2px solid black;
+        padding: 2rem;
+    }
 
-.card-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
 
-.card-image{
-    max-width: 10vw;
-    border: 2px solid black;
-    padding: 0.25rem;
-    border-radius: 1rem;
-}
+    .card-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .card-image {
+        max-width: 10vw;
+        border: 2px solid black;
+        padding: 0.25rem;
+        border-radius: 1rem;
+    }
 }
