@@ -63,7 +63,14 @@ export class DinosaurController extends Controller {
         } catch (error) {
             console.log(error);
         }
-        this.response.send('Ok');
+
+        this.response.redirect('../../../account/admin/dinosaures')
+
+        /** 
+        this.response.render('pages/account/dinosaur-management',{
+            dinosaurs:await this.dinosaurRepository.findAll(),
+            err:'',
+        }); */
     }
 
     public deleteDinosaurs() {

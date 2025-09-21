@@ -14,8 +14,8 @@ adminRouter.get('/dinosaures', (request, response) => {
 })
 
 adminRouter.get('/dinosaur/:id', (request, response) => {
-    const adminController = new DinosaurController(request, response);
-    adminController.readDinosaurs();
+    const adminController = new AdminController(request, response);
+    adminController.editDinosaur();
 })
 
 adminRouter.put('/dinosaur/edit', (request, response) => {
