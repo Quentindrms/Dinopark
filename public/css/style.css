@@ -215,10 +215,10 @@
 }
 
 .signup-link {
-  justify-content: center;
-  text-decoration: none;
   text-align: center;
-  color: black;
+  text-decoration: none;
+  color: #4F8B9A;
+  margin: 1rem;
 }
 
 .signUp-form {
@@ -239,6 +239,14 @@
 }
 
 .form-input-password {
+  width: 35vw;
+}
+
+.form-input-date {
+  width: 35vw;
+}
+
+.form-select {
   width: 35vw;
 }
 
