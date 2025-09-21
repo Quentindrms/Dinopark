@@ -63,26 +63,7 @@ export class AccountController extends Controller {
         });
     }
 
-    public async editDinosaur(){
-        const userCookie = JSON.parse(this.request.cookies.dinopark_connexion);
-        const userId = userCookie.id;
-        const user = await this.userRepository.findUserById(userId);
 
-        const requestedId:number = parseInt(this.request.params.id);
-
-        if(user?.getUserAdmin() == true){
-            const dinosaur = await this.dinosaurRepository.findById(requestedId);
-            this.response.render('pages/account/edit-dinosaur', {
-                dinosaur,
-            });
-        }
-        else{
-            console.log("Vous n'avez pas le rang administrateur");
-            this.response.status(400).render('pages/account/homePage',{
-                user,
-            });
-        }
-    }
 
     public async sendDinosaurEdit(){
 
